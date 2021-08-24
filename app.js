@@ -79,5 +79,4 @@ const app = new Vue({
     }
   }
 })
-
 app.updateAbility();
