@@ -81,4 +81,3 @@ const app = new Vue({
 })
 
 app.updateAbility();
-console.log("test")
