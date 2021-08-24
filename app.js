@@ -76,6 +76,11 @@ const app = new Vue({
           this[`${ability}`] += initParam[`${ability}`] * traitParam[this.trait][`${ability}`];
         }
       }
+    },
+    traitSwitcher: function() {
+      if(this.trait === "luckyDevil") this.trait = "tomboy";
+      else if (this.trait === "tomboy") this.trait = "luckyDevil";
+      else return;
     }
   }
 })
