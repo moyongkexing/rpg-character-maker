@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <title>RPG Character Maker</title>
+</head>
+<body class="h-screen flex flex-col justify-start items-center bg-blue-100">
+  <a class="font-bold mt-16 mb-5 tracking-tight font-mono underline" target="_blank" rel="noopener noreferrer" href="https://github.com/moyongkexing/recursion-vue">CODE</a>
+  <div id="app" class="w-5/6 lg:w-2/3 min-w-xl flex flex-col justify-center items-center lg:flex-row bg-green-700 relative">
+    <h1 class="text-center text-gray-100 bg-green-900 p-3 w-full font-bold text-2xl absolute top-0">Build Your Own Character</h1>
+    <section class="bg-gray-700 m-3 mt-20 text-white font-mono">
+      <div class="border-4 m-3 p-3">
+        <img class="w-60" v-bind:src="imgSrc" alt="生成されたキャラクターの画像">
+      </div>
+      <div class="border-4 m-3 p-3">
+        <h5>名前: {{ name }} </h5>
+        <h5>性別: {{ gender_ja }} </h5>
+        <h5>職業: {{ job_ja }} </h5>
+        <h5>性格: {{ trait_ja }} </h5>
+      </div>
+      <div class="border-4 m-3 p-3">
+        <h5>力: {{ strength }}</h5>
+        <h5>素早さ: {{ agility }}</h5>
+        <h5>体力: {{ resilience }}</h5>
+        <h5>賢さ: {{ wisdom }}</h5>
+        <h5>運: {{ luck }}</h5>
+      </div>
+    </section>
+    <section class="m-3 text-white font-mono">
+      <div class="m-3">
+        <label>名前</label>
+        <input type="text" v-model="name" class="bg-gray-700 py-2 px-3 rounded appearance-none border-2 border-gray-200 focus:outline-none focus:bg-gray-600 focus:border-green-500">
+      </div>
+      <div class="m-3">
+        <label>性別</label>
+        <label>男性<input type="radio" name="gender" value="male" v-model="gender"></label>
+        <label>女性<input type="radio" name="gender" value="female" v-model="gender"></label>
+      </div>
+      <div class="m-3">
+        <label>職業</label>
+        <select v-on:change="updateAbility" v-model="job" class="bg-gray-700 py-2 px-3 rounded border-2 border-gray-200 focus:outline-none focus:bg-gray-600 focus:border-green-500">
+          <option value="hero">勇者</option>
+          <option value="warrior">戦士</option>
+          <option value="mage">魔法使い</option>
+        </select>
+      </div>
+      <div class="m-3">
+        <label>性格</label>
+        <select v-on:change="updateAbility" v-model="trait" class="bg-gray-700 py-2 px-3 rounded border-2 border-gray-200 focus:outline-none focus:bg-gray-600 focus:border-green-500">
+          <option value="everyman">普通</option>
+          <option value="batOutOfHell">電光石火</option>
+          <option v-if="isHero" value="brave">勇敢</option>
+          <option v-if="isMale" value="luckyDevil">ラッキーボーイ</option>
+          <option v-else value="tomboy">おてんば</option>
+        </select>
+      </div>
+    </section>
+    <img class="h-24 absolute right-6 bottom-2 opacity-70" src="assets/vue.png" alt="">
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
