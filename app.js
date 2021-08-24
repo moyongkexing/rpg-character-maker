@@ -2,7 +2,7 @@ import { initParam } from "./params/initParam.js"
 import { jobParam } from "./params/jobParam.js"
 import { traitParam } from "./params/traitParam.js"
 
-new Vue({
+const app = new Vue({
   el: "#app",
   data: {
     name: "もーよん",
@@ -79,3 +79,6 @@ new Vue({
     }
   }
 })
+
+app.updateAbility();
+console.log("test")
