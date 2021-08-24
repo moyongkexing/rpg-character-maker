@@ -77,7 +77,7 @@ const app = new Vue({
         }
       }
     },
-    traitSwitcher: function() {
+    traitValidator: function() {
       if(this.trait === "luckyDevil" || this.trait === "tomboy") this.trait = "everyman";
     }
   }
