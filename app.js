@@ -78,9 +78,7 @@ const app = new Vue({
       }
     },
     traitSwitcher: function() {
-      if(this.trait === "luckyDevil") this.trait = "tomboy";
-      else if (this.trait === "tomboy") this.trait = "luckyDevil";
-      else return;
+      if(this.trait === "luckyDevil" || this.trait === "tomboy") this.trait = "everyman";
     }
   }
 })
